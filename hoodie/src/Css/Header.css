@@ -1,0 +1,166 @@
+.header-master{
+    width: 100vw;
+    height: 70px;
+    border-bottom:1px solid rgba(245, 245, 245, 0.5);
+    position: fixed;
+    opacity: 0.9;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.header-wrap{
+    width: 80%;
+    height:100%;
+    display: flex;
+}
+.header-logo{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.header-logo-image{
+    width: 126px;
+    height: 39px;
+    background-image: url('../Asset/Hoodie.png');
+    
+}
+.header-util{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header-switch-body-color{
+    
+    width: 36px;
+    height: 36px;
+    margin: 5px;
+}
+
+.moon{
+    background-image: url('../Asset/moon.png');
+}
+.sun{
+    background-image: url('../Asset/sun.png');
+}
+
+.header-switch-body-color-wrap{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-switch-body-color-wrap:hover{
+    background-color: rgba(90, 90, 90, 0.5)
+}
+.header-scope{
+    width: 22px;
+    height: 22px;
+    margin: 5px;
+    fill: white;
+}
+.header-scope-wrap{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-scope-wrap:hover{
+    background-color: rgba(90, 90, 90, 0.5)
+}
+.header-new-script{
+    width: 95px;
+    height: 30px;
+    border: 1px solid rgba(256, 256, 256, 1);
+    border-radius: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+.header-new-script-p{
+    font-size: 16px ;
+    font-weight: bold;
+    color: rgba(256, 256, 256, 1);
+}
+.header-new-script-auth{
+    width: 75px;
+    height: 32px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 16px ;
+    font-weight: bold;
+    text-decoration: none;
+    text-decoration: none;
+}
+
+.header-new-script-auth-moon{
+    background-color: white;
+    color: rgba(1, 1, 1, 1);
+}
+
+.header-new-script-auth-sun{
+    background-color: black;
+    color: white;
+}
+
+
+
+.header-new-script-p-auth{
+    font-size: 16px ;
+    font-weight: bold;
+    color: rgba(1, 1, 1, 1);
+}
+.header-my-info{
+    display: flex;
+    width: 100px;
+}
+.header-my-info-image{
+    width: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header-my-info-image-div{
+    background-image: url('../Asset/Info.png');
+    background-color: white;
+    border-radius: 30px;
+    width: 48px;
+    height: 48px;
+}
+.header-my-info-chevron{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.header-my-info-chevron-div{
+    width: 12px;
+    height: 7px;
+    background-image: url('../Asset/chevron.png');
+}
+.login-box{
+    position: absolute;
+    bottom:-300px;
+}
+
+@keyframes moon-and-sun{
+    from{
+        transform: scale(0.1);
+    }
+    to{
+        transform: scale(1);
+    }
+}
