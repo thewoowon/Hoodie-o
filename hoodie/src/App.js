@@ -7,8 +7,9 @@ import Footer from './Components/Footer';
 import Search from './Components/Search';
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import {Link,Route,Routes,Switch} from 'react-router-dom';
+import { Link,Route,Routes,Switch } from 'react-router-dom';
 import { useNavigate } from "react-router";
+import { useMediaQuery} from 'react-responsive';
 
 function App() {
   let navigate = useNavigate();
@@ -17,35 +18,28 @@ function App() {
   let [inputLogInEmail, setInputLogInEmail] = useState("");
   let [inputSignUpEmail, setInputSignUpEmail] = useState("");
 
+  const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 1224 }) // 일반 데스크탑, 랩탑
+  const isBigScreen = useMediaQuery({ minDeviceWidth: 1824 }) // 와이드 스크린
+
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 }) // 태블릿 랩탑
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 })
+
+  const isPortrait = useMediaQuery({ orientation: 'portrait' })
+  const isRetina = useMediaQuery({ minResolution: '2dppx' })
+
   return (
     <div className="App">
        <Header setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen}></Header>
         <Routes>
-          <Route path="/" element={
-            <>
-              <Main></Main>
-              <Footer></Footer>
-            </>
-          }>
+          <Route path="/" element={<Main></Main>}>
           </Route>
-          <Route path="/search" element={
-            <>
-              <Search></Search>
-              <Footer></Footer>
-            </>
-          }>
+          <Route path="/search" element={<Search></Search>}>
           </Route>
-          <Route path="/current" element={
-            <>
-              <Main></Main>
-              <Footer></Footer>
-            </>
-          }>
+          <Route path="/current" element={<Main></Main>}>
           </Route>
-          <Route path="/:id">
-
-          </Route>
+          <Route path="/:id" element={}></Route>
         </Routes>
+        <Footer></Footer>
        <Modal ariaHideApp={false} style={{
         overlay: {
           position: 'fixed',

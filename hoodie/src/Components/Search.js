@@ -1,5 +1,5 @@
 import React from "react";
-import '../Css/Search.css';
+import '../Css/Search.scss';
 import {Dropdown} from 'react-bootstrap';
 import Find from '../Asset/Find.svg';
 

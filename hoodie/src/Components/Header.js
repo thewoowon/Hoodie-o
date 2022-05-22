@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import '../Css/Header.css';
+import '../Css/Header.scss';
 import Find from '../Asset/Find.svg';
 
 function Header(props){
