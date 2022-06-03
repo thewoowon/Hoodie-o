@@ -18,6 +18,8 @@ function App() {
   let [inputLogInEmail, setInputLogInEmail] = useState("");
   let [inputSignUpEmail, setInputSignUpEmail] = useState("");
 
+  const [boardList,setBoardList] = useState([]);
+
   const isDesktopOrLaptop = useMediaQuery({ minDeviceWidth: 1224 }) // 일반 데스크탑, 랩탑
   const isBigScreen = useMediaQuery({ minDeviceWidth: 1824 }) // 와이드 스크린
 
@@ -27,17 +29,27 @@ function App() {
   const isPortrait = useMediaQuery({ orientation: 'portrait' })
   const isRetina = useMediaQuery({ minResolution: '2dppx' })
 
+
+  useEffect(()=>{
+    axios.get('http://localhost:4000/').then((response)=>{
+      if(response.data)
+      {
+        setBoardList([...response.data.result]);
+      }
+    })
+  },[])
+
   return (
     <div className="App">
        <Header setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen}></Header>
         <Routes>
-          <Route path="/" element={<Main></Main>}>
+          <Route path="/" element={<Main boardList={boardList}></Main>}>
           </Route>
           <Route path="/search" element={<Search></Search>}>
           </Route>
-          <Route path="/current" element={<Main></Main>}>
+          <Route path="/current" element={<Main boardList={boardList}></Main>}>
           </Route>
-          <Route path="/:id" element={}></Route>
+          <Route path="/:id" element={<Main boardList={boardList}></Main>}></Route>
         </Routes>
         <Footer></Footer>
        <Modal ariaHideApp={false} style={{

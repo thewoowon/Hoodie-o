@@ -1,3 +1,23 @@
+@media (max-width:1919px)
+{
+    .header-wrap{
+        width: 1376px !important;
+    }
+}
+@media (max-width: 1440px)
+{
+    .header-wrap {
+        width: 1024px !important;
+    }
+}
+@media (max-width: 1056px){
+    .header-wrap {
+        width: calc(100% - 2rem) !important;
+    }
+}
+
+
+
 .header-master{
     width: 100vw;
     height: 70px;
@@ -11,7 +31,7 @@
     position: relative;
 }
 .header-wrap{
-    width: 80%;
+    width: 1728px;
     height:100%;
     display: flex;
 }

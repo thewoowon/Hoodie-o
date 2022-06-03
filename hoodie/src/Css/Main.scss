@@ -1,13 +1,40 @@
-.main-master{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+@media (max-width: 1919px){
+    .main-master {width: 1376px !important;}
 }
-.main-wrap{
-    width: 80%;
-    display: block;
+@media (max-width: 1440px){
+    .main-master {width: 1024px !important;}
+}
+@media (max-width: 1056px){
+    .main-master {width: calc(100% - 2rem) !important;}
+}
+@media (max-width: 767px){
+    .main-card {margin: 0px !important;}
+}
+
+@media (max-width: 1056px){
+    .main-card-block { width: calc(50% - 2rem) !important;}
+}
+
+@media (max-width: 767px){
+    .main-card-block {margin: 0px !important;width: 100% !important;}
+}
+@media (max-width: 767px){
+    .main-card-block + .main-card-block {
+        margin-top: 1rem !important;
+    }
+}
+
+.main-master{
+    width: 1728px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main-body{
+    display: flex;
+    margin-top: 2rem;
+}
+.main-body-wrap{
+    flex: 1 1 0%;
 }
 .main-header{
     width: 100%;
@@ -19,14 +46,38 @@
 .main-header-ul{
     display: flex;
     padding-inline-start: 0;
+    position: relative;
 }
 .main-header-ul-li{
     width: 110px;
     height: 50px;
-    border-bottom: 3px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.main-header-ul-li:hover{
+    cursor: pointer;
+}
+.bottom-left{
+    animation-name: bottom-effect-left;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+.bottom-right{
+    animation-name: bottom-effect-right;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+.main-header-ul-bottom{
+    width: 110px;
+    height: 50px;
+    position: absolute;
+    border-bottom: 2px solid white;
 }
 .main-header-util{
     display: flex;
@@ -101,6 +152,7 @@
 }
 .main-header-util-span:hover{
     opacity: 0.75;
+    cursor:pointer;
 }
 .main-header-util-span-p
 {
@@ -130,7 +182,22 @@
     left: 130px;
     background-color: rgba(30, 30, 30, 1);
     border-radius: 5px;
-    display: none;
+    transition: width 0.5s height 0.5s ;
+    z-index: 10;
+}
+.dropbox-none{
+    animation-name: combo-effect-none;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+.dropbox-show{
+    animation-name: combo-effect-show;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
 }
 .main-header-until-span-dropbox-ul{
     list-style: none;
@@ -164,19 +231,17 @@
     background-image: url('../Asset/Dots.png');
 }
 .main-card{
-    width: 100%;
-    height: 400px;
-    margin-bottom: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    margin: -1rem;
 }
 .main-card-block{
     background-color: rgba(60, 60, 60, 0.7);
-    width: 310px;
-    height: 400px;
+    width: 320px;
+    height: 377px;
     border-radius: 5px;
-    margin: 0 18px 0 18px;
+    margin: 16px;
+    display: inline-block;
 }
 
 .main-card-block-moon{
@@ -191,12 +256,10 @@
 
 
 .main-card-block-image{
-    width: 310px;
-    height: 180px;
-    background-image: url('../Asset/Hoodie.png');
+    width: 100%;
+    position: relative;
 }
 .main-card-block-main{
-    width: 310px;
     height: 180px;
 }
 .main-card-block-main-title{
@@ -230,7 +293,6 @@
     font-size: 12px;
 }
 .main-card-block-tag{
-    width: 310px;
     height: 40px;
     
     display: flex;
@@ -243,6 +305,20 @@
 .main-card-block-tag-like{
     color: white;
     width: 40%;
+}
+.main-card-block-image img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.main-card-a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
 }
 
 .blinking{ -webkit-animation:blink 0.3s ease-in-out; -moz-animation:blink 0.3s ease-in-out; animation:blink 0.3s ease-in-out; } 
@@ -268,5 +344,41 @@
       
         to {
           background-position: 200% 100%;
+        }
+    }
+
+
+    @keyframes combo-effect-show{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    @keyframes combo-effect-none{
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity: 0;
+        }
+    }
+
+    @keyframes bottom-effect-left{
+        from{
+            left: 110px;
+        }
+        to{
+            left: 0;
+        }
+    }
+    @keyframes bottom-effect-right{
+        from{
+            left: 0;
+        }
+        to{
+            left: 110px;
         }
     }

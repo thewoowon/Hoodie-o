@@ -63,13 +63,13 @@ model.sequelize.sync()
 app.get('/',(req,res)=>{ // 메인 부분 글목록 들고 오기 가장 최근 20개
     model.Notice.findAll({
         order: [["createdAt", "desc"]],
-        limit: 20,
+        limit: 100,
     })
     .then( result => {
-        res.json(result)
+        res.json({result:result});
     })
     .catch( err => {
-        console.log(err)
+        console.log(err);
     })
 })
 
