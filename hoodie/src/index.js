@@ -9,6 +9,9 @@ import {createStore,applyMiddleware,compose} from 'redux';
 import {persistStore} from 'redux-persist';
 import {persistGate} from 'redux-persist/lib/integration/react';
 import {rootReducer} from './Reducers';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 //import configureStore from './Store';
 
 //const store = createStore(rootReducer);

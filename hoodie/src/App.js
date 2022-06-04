@@ -116,7 +116,13 @@ function App() {
               onClick={()=>{axios.post('http://localhost:4000/SignUp',{
                                     email : inputSignUpEmail,
                                 }).then((response)=>{
-                                  console.log(response);
+                                  if(response.data.result)
+                                  {
+                                    alert('입력하신 이메일로 인증 링크를 발송했습니다. 인증을 진행해주세요.');
+                                  }
+                                  else{
+                                    alert('이메일이 이미 존재하거나 올바르지 않습니다.');
+                                  }
                                 }).catch((err)=>{
                                     console.log(err);
                                 })
