@@ -43,16 +43,12 @@ router.post("/",async (req,res,next)=>{
     const saltRounds = 10
     let emailHash = '';
 
-    console.log('입장1');
-
     await bcrypt.genSalt(saltRounds,async function(err,salt){
         if(err) return next(err);
-        console.log('입장2')
         bcrypt.hash(email,salt, async function(err,hash){
             if(err) return next(err);
             emailHash = hash;
             
-            console.log('해쉬 성공');
             console.log(hash);
 
             model.User.findOne({
@@ -63,24 +59,15 @@ router.post("/",async (req,res,next)=>{
             .then( async result =>  {
                 if(result != null)
                 {
-                    console.log("일치하는 이메일 확인");
                     //여기서 인증 이메일 발송하고 확인 된다면 토큰을 생성합니다.
                     //let number = emailController.auth.SendEmail(req,res); 
 
                     await bcrypt.compare(email,result.dataValues.email,(err,match)=>{
                         if(err) return next(err);
                         if(match){
-                            console.log('일치');
-                            const token = jwt.sign({email :email}, "ABCDEFGHIJK", {expiresIn:'7d'});
-                            req.session.user=result.dataValues;
+                            const token = jwt.sign({email :email}, "ABCDEFGHIJK", {expiresIn:'7d',issuer:'issuer',algorithm:'HS256'});
                             res.json({
-                                auth: true,
                                 token: token,
-                                result:{
-                                    count : 1, 
-                                    email: result.dataValues.email,
-                                },
-                                cookie
                             });
                         }
                     })

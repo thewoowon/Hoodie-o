@@ -166,8 +166,12 @@ function App() {
                         axios.post('http://localhost:4000/Login',{
                             email : inputLogInEmail,
                         }).then((response)=>{
-                            console.log(response);
+                          if(response.data.token)
+                          {
+                            alert('로그인이 완료되었습니다.');
+                          }
                         }).catch((err)=>{
+                          alert('로그인이 실패');
                             console.log(err);
                         })
 
