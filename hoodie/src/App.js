@@ -95,12 +95,12 @@ function App() {
             signInPage
             ?
             <div className="modal-right-wrap">
-            <div className="modal-right-1" onClick={
+            <div className="modal-right-1" >
+              <p className="modal-right-1-p" onClick={
               ()=>{
                 setModalIsOpen(false)
               }
-            }>
-              <p className="modal-right-1-p">X</p>
+            }>X</p>
             </div>
             <div className="modal-right-2">
               <p className="modal-right-2-p">회원가입</p>
@@ -119,6 +119,7 @@ function App() {
                                   if(response.data.result)
                                   {
                                     alert('입력하신 이메일로 인증 링크를 발송했습니다. 인증을 진행해주세요.');
+                                    setModalIsOpen(false);
                                   }
                                   else{
                                     alert('이메일이 이미 존재하거나 올바르지 않습니다.');
@@ -144,12 +145,12 @@ function App() {
           </div>
             :
             <div className="modal-right-wrap">
-            <div className="modal-right-1" onClick={
+            <div className="modal-right-1" >
+              <p className="modal-right-1-p" onClick={
               ()=>{
                 setModalIsOpen(false)
               }
-            }>
-              <p className="modal-right-1-p">X</p>
+            }>X</p>
             </div>
             <div className="modal-right-2">
               <p className="modal-right-2-p">로그인</p>
@@ -169,6 +170,7 @@ function App() {
                           if(response.data.token)
                           {
                             alert('로그인이 완료되었습니다.');
+                            setModalIsOpen(false);
                           }
                         }).catch((err)=>{
                           alert('로그인이 실패');

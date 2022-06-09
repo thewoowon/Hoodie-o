@@ -61,11 +61,11 @@ router.post("/",async (req,res,next)=>{
                 {
                     //여기서 인증 이메일 발송하고 확인 된다면 토큰을 생성합니다.
                     //let number = emailController.auth.SendEmail(req,res); 
-
+                    // 유효기간이 짧은 토큰 + 리프레시 토큰 두개 발급
                     await bcrypt.compare(email,result.dataValues.email,(err,match)=>{
                         if(err) return next(err);
                         if(match){
-                            const token = jwt.sign({email :email}, "ABCDEFGHIJK", {expiresIn:'7d',issuer:'issuer',algorithm:'HS256'});
+                            const token = jwt.sign({email :email}, secretKey, option);
                             res.json({
                                 token: token,
                             });
