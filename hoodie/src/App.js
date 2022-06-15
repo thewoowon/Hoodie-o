@@ -170,6 +170,9 @@ function App() {
                           if(response.data.token)
                           {
                             alert('로그인이 완료되었습니다.');
+                            //여기서 토큰을 발급받고 저장한다.
+                            // Token 저장 위치는
+                            localStorage.setItem("token",response.data.token);
                             setModalIsOpen(false);
                           }
                         }).catch((err)=>{
