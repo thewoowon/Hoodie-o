@@ -12,6 +12,7 @@ import {rootReducer} from './Reducers';
 import reduxThunk from 'react-thunk';
 import promiseMiddleware from 'react-promise';
 import axios from 'axios';
+import { store } from './_store';
 
 axios.defaults.withCredentials = true;
 //import configureStore from './Store';
@@ -19,21 +20,13 @@ axios.defaults.withCredentials = true;
 //const store = createStore(rootReducer);
 //const persistor = persistStore(store);
 
-const createStoreWithMiddleWare = applyMiddleware(
-  promiseMiddleware,
-  reduxThunk
-)(createStore);
-
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={createStoreWidthMiddleware(
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__()
-      )}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
