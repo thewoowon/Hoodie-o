@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
-import { history } from '_helpers';
-import { authActions } from '_store';
+import { history } from '../_helpers';
+import { authActions } from '../_store';
 
 
 function ModalComponent(props){
@@ -132,7 +132,7 @@ function ModalComponent(props){
                   <a className="modal-right-4-a" href="#" onClick={()=>{
                             //여기서 jwt database 조회 후 jwt 생성 후 쿠키에 실어 보냄
 
-                            dispatch(authActions.login({ username, password }));
+                            //dispatch(authActions.login({ inputLogInEmail }));
 
                             axios.post('http://localhost:4000/Login',{
                                 email : inputLogInEmail,
